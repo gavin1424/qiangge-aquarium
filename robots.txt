@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gavin1424.github.io/qiangge-aquarium/sitemap.xml
+

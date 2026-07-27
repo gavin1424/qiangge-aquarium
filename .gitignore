@@ -1,0 +1,4 @@
+qa/server.stdout.log
+qa/server.stderr.log
+__pycache__/
+*.pyc
