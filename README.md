@@ -1,51 +1,46 @@
 # 強哥水族
 
-異形專賣・專業繁殖・飼養交流
-
-這是一個為 GitHub Pages 專案頁設計的純靜態多頁網站。網站不需要資料庫、後端伺服器、WordPress、付費 API 或第三方追蹤服務。
+強哥水族商用級多頁靜態網站，品牌定位為「異形專賣・專業繁殖・飼養交流」。
 
 正式網站：<https://gavin1424.github.io/qiangge-aquarium/>
 
 Repository：<https://github.com/gavin1424/qiangge-aquarium>
 
-## 網站頁面
+## 技術架構
 
-- 首頁
-- 熱門魚種總覽
-- 魚種照護詳情
-- 新魚到港
-- 飼養教學與文章
-- 繁殖紀錄
-- 圖片相簿
-- 關於我們與養殖理念
-- 聯絡與預約賞魚
+- HTML5、CSS3、Vanilla JavaScript
+- JSON 內容資料與 SVG 品牌圖示
+- Python 標準函式庫建置腳本
+- GitHub Pages 專案頁部署
+- 無資料庫、無後端、無付費 API、無外部追蹤程式
 
-## 本機預覽
+最終部署成品皆為純靜態檔案；GitHub Pages 不需執行 Python。
 
-請在專案根目錄啟動任一靜態 HTTP 伺服器，例如：
+## 本機建置與預覽
 
 ```powershell
-python -m http.server 8000
+python scripts\build-site.py
+python scripts\qa.py
+python -m http.server 4173
 ```
 
-接著瀏覽 `http://localhost:8000/`。直接雙擊 HTML 也可閱讀主要內容，但 JSON 魚種資料需透過 HTTP 預覽才能載入。
+再以瀏覽器開啟 `http://localhost:4173/`。
 
-## 部署
+`scripts/build-site.py` 會同步共用 Header、Footer、手機 Dock，並依 `data/fish.json` 產生八個獨立魚種詳情頁。所有路徑均使用相對路徑，支援 `/qiangge-aquarium/` 子目錄部署。
 
-正式 Repository：
+## 圖片來源規範
 
-```text
-gavin1424/qiangge-aquarium
-```
+- `assets/images/illustrations/`：8 張 AI 生成外觀示意圖，公開頁面均須顯示「AI 示意」。
+- `assets/images/photography/`：僅能放入經確認的使用者手機實拍；目前為 0 張。
+- `assets/images/design-reference/`：5 張網站概念圖，只供內部版面參考，不得載入公開頁面。
+- `assets/data/asset-provenance.json` 與 `ASSET_PROVENANCE.csv`：圖片來源與允許用途的單一紀錄。
+- `ASSET_MANIFEST.csv`：檔名、用途、尺寸、格式與使用狀態清單。
 
-GitHub Pages 正式網址：
+目前缺少的手機實拍與官方聯絡資料詳見 `MISSING_ASSETS_REPORT_ZH.md`。
 
-```text
-https://gavin1424.github.io/qiangge-aquarium/
-```
+## 維護規則
 
-所有內部路徑使用相對位置，可安全部署於 `/qiangge-aquarium/` 子目錄。
-
-## 素材狀態
-
-目前取得五張網站概念圖與八張真實魚類照片。概念圖僅用作設計參考，沒有在公開頁面中顯示；真實魚照保留原始檔，並建立 WebP 響應式版本與 JPG 後備。網站不使用網路隨機圖片、AI 魚圖或從概念圖裁切的魚圖。仍待補的素材詳見 `MISSING_ASSETS_REPORT_ZH.md`。
+- 只允許操作 `gavin1424/qiangge-aquarium`。
+- 不得加入未確認的魚種、L 編號、品系、價格、庫存、聯絡資訊或門市資訊。
+- AI 圖不得宣稱為實際個體、現貨或繁殖成果。
+- 每次修改後需重新執行建置與 QA。

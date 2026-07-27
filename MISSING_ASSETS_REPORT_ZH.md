@@ -1,60 +1,62 @@
-# 強哥水族缺少素材報告
+# 強哥水族素材缺件報告
 
-盤點日期：2026-07-27
+更新日期：2026-07-27
 
-## 搜尋與補件結果
+## 搜尋結果
 
-已依需求搜尋以下位置最近 14 天建立或修改的 JPG、JPEG、PNG、WEBP：
+已搜尋最近 14 天內建立或修改的 JPG、JPEG、PNG、WEBP，範圍包括：
 
-- `C:\Users\wwwas\Desktop\強哥水族網站素材`：資料夾不存在
-- `C:\Users\wwwas\Desktop`：未找到可辨識為強哥水族的獨立魚類照片
-- `C:\Users\wwwas\Downloads`：只有其他主題圖片，無水族素材
-- `C:\Users\wwwas\Pictures`：沒有最近 14 天圖片
-- `C:\Users\wwwas\OneDrive\Desktop`：資料夾不存在
-- 第一批附件：5 張網站概念圖
-- 第二、三批附件：共 8 張可獨立使用的真實魚類原始照片，已納入網站
+- `C:\Users\wwwas\Desktop\強哥水族網站素材`：資料夾不存在。
+- `C:\Users\wwwas\Desktop`：未找到可確認為強哥水族手機實拍的五張照片。
+- `C:\Users\wwwas\Downloads`：未找到可確認的手機實拍原檔。
+- `C:\Users\wwwas\Pictures`：未找到可確認的手機實拍原檔。
+- `C:\Users\wwwas\OneDrive\Desktop`：資料夾不存在。
+- 本次與前次附件：確認 8 張 AI 生成魚圖與 5 張網站概念圖。
+- 另以 EXIF 相機資訊協助檢索，找到的近期相機檔案與本網站魚類素材無關。
 
-## 已取得但不可當內容使用
+未依檔名或影像外觀看似真實而判定來源。
 
-五張概念圖分別為桌機首頁、手機首頁、魚種總覽、圖片相簿、魚種詳情。它們已複製到 `assets/images/source/` 作為版面參考，公開 HTML 不會載入這些概念圖，也不會裁切其中的魚隻影像。
+## 目前已整合素材
 
-原需求提到十張概念圖，目前缺少另外五張：繁殖紀錄、飼養教學／部落格、關於我們／養殖環境、新魚到港、聯絡我們／預約賞魚。
+- AI 生成魚圖：8 張，公開使用時皆顯示「AI 示意」標籤。
+- 網站概念圖：5 張，只保留於 `assets/images/design-reference/` 作內部設計參考，不載入公開頁面。
+- 使用者手機實拍：0 張。
+- AI 圖放置於 `assets/images/illustrations/`。
+- 未來確認的實拍原檔應複製到 `assets/images/photography/`，不得覆蓋原始檔。
 
-## 已完成的真實照片處理
+## 尚缺少的五張手機實拍
 
-八張魚照已原封不動複製到 `assets/images/source/`，並在 `assets/images/optimized/` 建立：
+請重新提供以下原始照片；在確認來源前，網站不會把任何現有魚圖標示為實拍：
 
-- 400 × 500 WebP
-- 640 × 800 WebP
-- 960 × 1200 WebP
-- 960 × 1200 JPG 後備
+1. 手持一尾紅色鰭、條紋異形魚，背景為紅色水盆。
+2. 紅色水盆內有魚，以及一個裝著黃色魚卵的小碗。
+3. 多尾異形魚聚集在白色六角繁殖管。
+4. 淺色／白化異形魚在透明繁殖盒中的側面照片。
+5. 同一尾淺色／白化異形魚在透明繁殖盒中的俯視照片。
 
-網站以外觀描述命名，不會從照片直接推定學名或 L 編號。
-
-## 建議繼續補充的真實照片
-
-請將下列原始照片放入：
+建議放置路徑：
 
 ```text
-assets/images/source/fish/
-assets/images/source/breeding/
-assets/images/source/environment/
-assets/images/source/gallery/
+assets/images/photography/breeding-parent-red-basin.jpg
+assets/images/photography/breeding-eggs-yellow-bowl.jpg
+assets/images/photography/breeding-hex-caves-group.jpg
+assets/images/photography/light-fish-breeding-box-side.jpg
+assets/images/photography/light-fish-breeding-box-top.jpg
 ```
 
-為了讓相簿、繁殖與環境頁更完整，建議再準備：
+收到後仍需逐張確認來源、建立 WebP/JPG 尺寸版本、補齊 `ASSET_MANIFEST.csv` 與來源清單，完成 QA 後才能公開標示「實拍紀錄」。
 
-1. 同一尾魚的體側、背鰭、腹部與口器角度，方便人工確認品系。
-2. 繁殖管與魚卵：至少 4 張，需保留拍攝日期與批次說明。
-3. 養殖環境：全景 3 張、設備與細節 4 張。
-4. 首頁橫式主視覺：至少 2400 × 1350，魚體完整、焦點清楚。
+## 尚缺少的官方聯絡資訊
 
-## 檔案與資訊建議
+`assets/js/site-config.js` 目前所有欄位皆留白，因此網站只提供「詢問內容產生器」，不顯示未確認的聯絡資料。尚待補充：
 
-- 原檔保留 EXIF 與最高畫質版本。
-- 每張照片附上可公開的魚種名稱、拍攝日期、是否為強哥水族實際魚隻。
-- 若要標示學名或 L 編號，請一併提供可靠來源或由繁殖者人工確認。
-- 請勿先自行裁切或加字；網站會從原檔產生 WebP 與不同尺寸版本。
-- 聯絡頁仍缺少已確認的聯絡管道；請另提供可公開的電子郵件、電話或社群連結。
+- LINE 連結與 LINE ID
+- Instagram 網址
+- Facebook 網址
+- Email
+- 電話
+- 地址
+- 營業時間
+- 地圖網址
 
-目前八張真實魚照足以完成第一版網站。未取得的繁殖、魚卵與環境照片仍不以假圖或網路圖片代替。
+空白欄位會完全隱藏，不會以概念圖中的範例資料代替。

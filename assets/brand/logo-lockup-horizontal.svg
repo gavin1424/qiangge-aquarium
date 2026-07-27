@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 176 72" role="img" aria-labelledby="title">
+  <title id="title">強哥水族異形魚橫式圖形標誌</title>
+  <defs>
+    <mask id="fish-cut">
+      <rect width="128" height="72" fill="#000"/>
+      <path fill="#fff" d="M9 35 2 20c14 1 23 6 30 13 12-11 29-15 50-12l17 3c8 1 15 6 20 13l6 8-8 5c-7 5-16 7-25 5L62 49c-13-3-24-3-33 0-8 3-17 5-27 3l8-12Z"/>
+      <path fill="#fff" d="M52 23c7-12 17-18 31-19l-8 18Zm-1 26c-1 10-7 16-18 19l-3-18Zm28 3c4 8 10 12 19 14l-4-13Z"/>
+      <g fill="none" stroke="#000" stroke-linecap="round">
+        <path stroke-width="4" d="M17 28 7 38m18-4L11 48"/>
+        <path stroke-width="3.5" d="M59 29c7 3 13 5 20 5m-25 5c8 4 16 6 24 6m8-14 11 3m-12 7 14 3m12-2c4 0 8 1 11 4"/>
+      </g>
+    </mask>
+  </defs>
+  <rect width="128" height="72" fill="currentColor" mask="url(#fish-cut)"/>
+  <path fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" d="M138 25h36m-36 13h27m-27 13h36"/>
+</svg>

@@ -15,7 +15,8 @@ function createResponsivePicture(image, options = {}) {
   const picture = document.createElement("picture");
   const source = document.createElement("source");
   const img = document.createElement("img");
-  const prefix = `${basePath}assets/images/optimized/${image.base}`;
+  const folder = image.folder || "illustrations";
+  const prefix = `${basePath}assets/images/${folder}/${image.base}`;
 
   source.type = "image/webp";
   source.srcset = `${prefix}-400.webp 400w, ${prefix}-640.webp 640w, ${prefix}-960.webp 960w`;
@@ -27,43 +28,51 @@ function createResponsivePicture(image, options = {}) {
   img.height = 1200;
   img.loading = options.eager ? "eager" : "lazy";
   img.decoding = "async";
-  if (options.eager) {
-    img.fetchPriority = "high";
-  }
+  if (options.eager) img.fetchPriority = "high";
 
   picture.append(source, img);
   return picture;
+}
+
+function sourceBadge(label = "AI 示意", type = "ai-generated") {
+  const badge = document.createElement("span");
+  badge.className =
+    type === "camera-photo"
+      ? "source-badge source-badge--camera"
+      : "source-badge source-badge--ai";
+  badge.textContent = label;
+  return badge;
 }
 
 const menuToggle = qs("[data-menu-toggle]");
 const siteNav = qs("[data-site-nav]");
 
 if (menuToggle && siteNav) {
-  const closeMenu = () => {
+  const label = qs("span", menuToggle);
+  const closeMenu = (restoreFocus = false) => {
     menuToggle.setAttribute("aria-expanded", "false");
-    menuToggle.textContent = "選單";
+    if (label) label.textContent = "選單";
     siteNav.classList.remove("is-open");
     body.classList.remove("menu-open");
+    if (restoreFocus) menuToggle.focus();
   };
 
   menuToggle.addEventListener("click", () => {
     const willOpen = menuToggle.getAttribute("aria-expanded") !== "true";
     menuToggle.setAttribute("aria-expanded", String(willOpen));
-    menuToggle.textContent = willOpen ? "關閉" : "選單";
+    if (label) label.textContent = willOpen ? "關閉" : "選單";
     siteNav.classList.toggle("is-open", willOpen);
     body.classList.toggle("menu-open", willOpen);
+    if (willOpen) qs("a", siteNav)?.focus();
   });
 
   siteNav.addEventListener("click", (event) => {
-    if (event.target instanceof HTMLAnchorElement) {
-      closeMenu();
-    }
+    if (event.target instanceof HTMLAnchorElement) closeMenu();
   });
 
   document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
-      closeMenu();
-      menuToggle.focus();
+    if (event.key === "Escape" && siteNav.classList.contains("is-open")) {
+      closeMenu(true);
     }
   });
 }
@@ -74,9 +83,7 @@ qsa("[data-current-year]").forEach((element) => {
 
 async function loadFishData() {
   const response = await fetch(`${basePath}data/fish.json`);
-  if (!response.ok) {
-    throw new Error(`Fish data request failed: ${response.status}`);
-  }
+  if (!response.ok) throw new Error(`Fish data request failed: ${response.status}`);
   return response.json();
 }
 
@@ -87,11 +94,7 @@ function createFishCard(fish) {
   const media = document.createElement("div");
   media.className = "fish-card__media";
   media.append(createResponsivePicture(fish.image));
-
-  const status = document.createElement("span");
-  status.className = "status-label";
-  status.textContent = fish.status;
-  media.append(status);
+  media.append(sourceBadge(fish.image.sourceLabel, fish.image.sourceType));
 
   const content = document.createElement("div");
   content.className = "fish-card__body";
@@ -108,9 +111,9 @@ function createFishCard(fish) {
 
   const footer = document.createElement("a");
   footer.className = "fish-card__footer";
-  footer.href = `${basePath}fish/detail.html?id=${encodeURIComponent(fish.id)}`;
-  footer.innerHTML = "<span>查看照護重點</span><span aria-hidden=\"true\">→</span>";
-  footer.setAttribute("aria-label", `查看${fish.name}照護重點`);
+  footer.href = `${basePath}fish/${encodeURIComponent(fish.id)}/`;
+  footer.innerHTML = "<span>查看外觀與照護重點</span><span aria-hidden=\"true\">→</span>";
+  footer.setAttribute("aria-label", `查看${fish.name}外觀與照護重點`);
 
   content.append(category, heading, summary, footer);
   article.append(media, content);
@@ -144,12 +147,12 @@ if (fishGrid) {
       const empty = document.createElement("div");
       empty.className = "empty-state";
       empty.innerHTML =
-        "<h2>沒有符合條件的魚種</h2><p>請清除搜尋文字或改用其他外觀分類。</p>";
+        "<h2>沒有符合條件的外觀分類</h2><p>請清除搜尋文字或改用其他分類。</p>";
       fishGrid.append(empty);
     }
 
     if (resultMeta) {
-      resultMeta.textContent = `顯示 ${visible.length} 筆實際個體資料；正式品系仍待人工確認。`;
+      resultMeta.textContent = `顯示 ${visible.length} 筆 AI 外觀示意；正式品系仍待來源資料確認。`;
     }
   };
 
@@ -161,9 +164,7 @@ if (fishGrid) {
     .catch(() => {
       fishGrid.innerHTML =
         '<div class="empty-state"><h2>魚種資料暫時無法載入</h2><p>請重新整理頁面，或稍後再試。</p></div>';
-      if (resultMeta) {
-        resultMeta.textContent = "資料載入失敗";
-      }
+      if (resultMeta) resultMeta.textContent = "資料載入失敗";
     });
 
   filterButtons.forEach((button) => {
@@ -181,64 +182,79 @@ if (fishGrid) {
   searchInput?.addEventListener("input", render);
 }
 
-const detailRoot = qs("[data-fish-detail]");
+const detailRedirect = qs("[data-detail-redirect]");
 
-if (detailRoot) {
+if (detailRedirect) {
   const params = new URLSearchParams(window.location.search);
-  const requestedId = params.get("id") || "light-stripe";
-
-  loadFishData()
-    .then((fishList) => {
-      const fish =
-        fishList.find((item) => item.id === requestedId) ||
-        fishList.find((item) => item.id === "light-stripe") ||
-        fishList[0];
-
-      document.title = `${fish.name}｜強哥水族`;
-      const imageSlot = qs("[data-detail-image]", detailRoot);
-      const nameSlots = qsa("[data-detail-name]", detailRoot);
-      const category = qs("[data-detail-category]", detailRoot);
-      const summary = qs("[data-detail-summary]", detailRoot);
-      const temperament = qs("[data-detail-temperament]", detailRoot);
-      const careLevel = qs("[data-detail-care]", detailRoot);
-      const water = qs("[data-detail-water]", detailRoot);
-      const habitat = qs("[data-detail-habitat]", detailRoot);
-      const feeding = qs("[data-detail-feeding]", detailRoot);
-      const notes = qs("[data-detail-notes]", detailRoot);
-
-      if (imageSlot) {
-        imageSlot.replaceChildren(
-          createResponsivePicture(fish.image, {
-            sizes: "(max-width: 860px) 100vw, 50vw",
-            eager: true,
-          })
-        );
-      }
-
-      nameSlots.forEach((slot) => {
-        slot.textContent = fish.name;
-      });
-      if (category) category.textContent = `${fish.category}・${fish.status}`;
-      if (summary) summary.textContent = fish.summary;
-      if (temperament) temperament.textContent = fish.temperament;
-      if (careLevel) careLevel.textContent = fish.careLevel;
-      if (water) water.textContent = fish.waterFocus;
-      if (habitat) habitat.textContent = fish.habitat;
-      if (feeding) feeding.textContent = fish.feeding;
-      if (notes) {
-        notes.replaceChildren();
-        fish.notes.forEach((note) => {
-          const li = document.createElement("li");
-          li.textContent = note;
-          notes.append(li);
-        });
-      }
-    })
-    .catch(() => {
-      detailRoot.innerHTML =
-        '<div class="container section"><div class="empty-state"><h1>魚種資料暫時無法載入</h1><p>請返回魚種總覽後重新選擇。</p><a class="button button--primary" href="./index.html">返回魚種總覽</a></div></div>';
-    });
+  const requestedId = params.get("id");
+  const known = new Set([
+    "green-brown-armored",
+    "maze-pattern",
+    "light-stripe",
+    "blue-spotted",
+    "orange-fin",
+    "white-spotted",
+    "gold-spotted",
+    "leopard-pattern",
+  ]);
+  const target = known.has(requestedId) ? requestedId : "light-stripe";
+  window.location.replace(`./${target}/`);
 }
+
+function buildOfficialChannels() {
+  const root = qs("[data-contact-channels]");
+  const emptyNotice = qs("[data-no-contact-channel]");
+  const detailsRoot = qs("[data-contact-details]");
+  if (!root) return;
+
+  const config = window.QIANGGE_CONFIG || {};
+  const links = [];
+  const add = (label, href, external = true) => {
+    if (!href) return;
+    const link = document.createElement("a");
+    link.className = "button button--outline";
+    link.href = href;
+    link.textContent = label;
+    if (external) {
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+    }
+    links.push(link);
+  };
+
+  add("LINE 詢問", config.lineUrl);
+  add("Instagram 私訊", config.instagramUrl);
+  add("Facebook 訊息", config.facebookUrl);
+  add("Email 詢問", config.email ? `mailto:${config.email}` : "", false);
+  add("電話聯絡", config.phone ? `tel:${config.phone}` : "", false);
+  add("查看地圖", config.address && config.mapUrl ? config.mapUrl : "");
+
+  root.replaceChildren(...links);
+  root.hidden = links.length === 0;
+  if (emptyNotice) emptyNotice.hidden = links.length > 0;
+
+  if (detailsRoot) {
+    const details = [
+      ["LINE ID", config.lineId],
+      ["地址", config.address],
+      ["營業時間", config.openingHours],
+    ].filter(([, value]) => value);
+    detailsRoot.replaceChildren(
+      ...details.map(([label, value]) => {
+        const wrapper = document.createElement("div");
+        const term = document.createElement("dt");
+        const description = document.createElement("dd");
+        term.textContent = label;
+        description.textContent = value;
+        wrapper.append(term, description);
+        return wrapper;
+      })
+    );
+    detailsRoot.hidden = details.length === 0;
+  }
+}
+
+buildOfficialChannels();
 
 const contactForm = qs("[data-contact-form]");
 
@@ -253,16 +269,14 @@ if (contactForm) {
 
     const formData = new FormData(contactForm);
     const summary = [
-      "強哥水族｜預約／交流內容",
+      "強哥水族｜詢問內容",
       `稱呼：${formData.get("name")}`,
-      `交流主題：${formData.get("topic")}`,
+      `詢問主題：${formData.get("topic")}`,
       `偏好日期：${formData.get("date") || "未指定"}`,
-      `聯絡方式：${formData.get("contact") || "尚未填寫"}`,
+      `回覆方式：${formData.get("contact") || "未填寫"}`,
       "",
       "想了解的內容：",
       String(formData.get("message") || "").trim(),
-      "",
-      "備註：網站不會自動送出或儲存以上資料。",
     ].join("\n");
 
     if (summaryText) summaryText.textContent = summary;
@@ -276,7 +290,7 @@ if (contactForm) {
 
     try {
       await navigator.clipboard.writeText(text);
-      copyButton.textContent = "已複製";
+      copyButton.textContent = "已複製詢問內容";
     } catch {
       const range = document.createRange();
       range.selectNodeContents(summaryText);
@@ -287,7 +301,7 @@ if (contactForm) {
     }
 
     window.setTimeout(() => {
-      copyButton.textContent = "複製內容";
+      copyButton.textContent = "複製詢問內容";
     }, 2200);
   });
 }

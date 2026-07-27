@@ -1,14 +1,14 @@
 原始檔名,新檔名,圖片用途,頁面位置,原始尺寸,優化尺寸,格式,是否實際使用
-1-Photo-1.jpg,reference-concept-01-home-desktop.jpg,桌機首頁概念圖參考,不載入公開頁面,1024x1280,未最佳化,JPEG,否
-2-Photo-2.jpg,reference-concept-02-home-mobile.jpg,手機首頁概念圖參考,不載入公開頁面,1024x1280,未最佳化,JPEG,否
-3-Photo-3.jpg,reference-concept-03-fish-list.jpg,魚種總覽概念圖參考,不載入公開頁面,1024x1280,未最佳化,JPEG,否
-4-Photo-4.jpg,reference-concept-04-gallery.jpg,圖片相簿概念圖參考,不載入公開頁面,1024x1280,未最佳化,JPEG,否
-5-Photo-5.jpg,reference-concept-05-fish-detail.jpg,魚種詳情概念圖參考,不載入公開頁面,1024x1280,未最佳化,JPEG,否
-1-Photo-1.jpg,real-fish-01-green-brown.jpg,綠褐甲紋異形真實照片,首頁／魚種總覽／相簿,1024x1280,400x500;640x800;960x1200,WebP+JPEG,是
-2-Photo-2.jpg,real-fish-02-maze-pattern.jpg,迷宮紋異形真實照片,首頁／魚種總覽／相簿,1024x1280,400x500;640x800;960x1200,WebP+JPEG,是
-3-Photo-3.jpg,real-fish-03-light-stripe.jpg,淺色條紋異形真實照片,首頁／魚種總覽／相簿／魚種詳情,1024x1280,400x500;640x800;960x1200,WebP+JPEG,是
-4-Photo-4.jpg,real-fish-04-blue-spotted.jpg,藍點星紋異形真實照片,首頁／魚種總覽／相簿,1024x1280,400x500;640x800;960x1200,WebP+JPEG,是
-5-Photo-5.jpg,real-fish-05-orange-fin.jpg,橘緣異形真實照片,首頁首屏／魚種總覽／相簿,1024x1280,400x500;640x800;960x1200,WebP+JPEG,是
-1-Photo-1.jpg,real-fish-06-white-spotted.jpg,白點星紋異形真實照片,魚種總覽／相簿,1024x1280,400x500;640x800;960x1200,WebP+JPEG,是
-2-Photo-2.jpg,real-fish-07-gold-spotted.jpg,黃金點紋異形真實照片,魚種總覽／相簿／新魚到港,1024x1280,400x500;640x800;960x1200,WebP+JPEG,是
-3-Photo-3.jpg,real-fish-08-leopard-pattern.jpg,豹紋異形真實照片,魚種總覽／相簿,1024x1280,400x500;640x800;960x1200,WebP+JPEG,是
+1-Photo-1.jpg,assets/images/design-reference/reference-concept-01-home-desktop.jpg,桌機首頁概念圖參考,不載入公開頁面,1024x1280,未最佳化,JPEG,否
+2-Photo-2.jpg,assets/images/design-reference/reference-concept-02-home-mobile.jpg,手機首頁概念圖參考,不載入公開頁面,1024x1280,未最佳化,JPEG,否
+3-Photo-3.jpg,assets/images/design-reference/reference-concept-03-fish-list.jpg,魚種總覽概念圖參考,不載入公開頁面,1024x1280,未最佳化,JPEG,否
+4-Photo-4.jpg,assets/images/design-reference/reference-concept-04-gallery.jpg,圖片相簿概念圖參考,不載入公開頁面,1024x1280,未最佳化,JPEG,否
+5-Photo-5.jpg,assets/images/design-reference/reference-concept-05-fish-detail.jpg,魚種詳情概念圖參考,不載入公開頁面,1024x1280,未最佳化,JPEG,否
+1-Photo-1.jpg,assets/images/illustrations/ai-display-fish-01-green-brown.jpg,綠褐甲紋異形 AI 外觀示意,首頁／魚種總覽／相簿／詳情,1024x1280,400x500;640x800;960x1200,WebP+JPEG,是
+2-Photo-2.jpg,assets/images/illustrations/ai-display-fish-02-maze-pattern.jpg,迷宮甲紋異形 AI 外觀示意,首頁／魚種總覽／相簿／詳情,1024x1280,400x500;640x800;960x1200,WebP+JPEG,是
+3-Photo-3.jpg,assets/images/illustrations/ai-display-fish-03-light-stripe.jpg,淺色條紋異形 AI 外觀示意,首頁／魚種總覽／相簿／詳情,1024x1280,400x500;640x800;960x1200,WebP+JPEG,是
+4-Photo-4.jpg,assets/images/illustrations/ai-display-fish-04-blue-spotted.jpg,藍點星紋異形 AI 外觀示意,首頁／魚種總覽／相簿／詳情,1024x1280,400x500;640x800;960x1200,WebP+JPEG,是
+5-Photo-5.jpg,assets/images/illustrations/ai-display-fish-05-orange-fin.jpg,橘色鰭緣異形 AI 外觀示意,首頁首屏／魚種總覽／相簿／詳情,1024x1280,400x500;640x800;960x1200,WebP+JPEG,是
+1-Photo-1.jpg,assets/images/illustrations/ai-display-fish-06-white-spotted.jpg,黑底白點異形 AI 外觀示意,首頁／魚種總覽／相簿／詳情,1024x1280,400x500;640x800;960x1200,WebP+JPEG,是
+2-Photo-2.jpg,assets/images/illustrations/ai-display-fish-07-gold-spotted.jpg,黃金點紋異形 AI 外觀示意,首頁／魚種總覽／相簿／詳情／近期魚況,1024x1280,400x500;640x800;960x1200,WebP+JPEG,是
+3-Photo-3.jpg,assets/images/illustrations/ai-display-fish-08-leopard-pattern.jpg,豹紋高帆異形 AI 外觀示意,首頁／魚種總覽／相簿／詳情,1024x1280,400x500;640x800;960x1200,WebP+JPEG,是

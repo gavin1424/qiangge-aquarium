@@ -1,122 +1,81 @@
 # Design QA
 
-## Comparison target
+## 比對目標
 
-- Source visual truth:
-  - `assets/images/source/reference-concept-01-home-desktop.jpg`
-  - `assets/images/source/reference-concept-02-home-mobile.jpg`
-  - `assets/images/source/reference-concept-03-fish-list.jpg`
-  - `assets/images/source/reference-concept-04-gallery.jpg`
-  - `assets/images/source/reference-concept-05-fish-detail.jpg`
-- Browser-rendered implementation:
-  - `qa/screenshots/home-desktop-1440x1000.png`
-  - `qa/screenshots/home-mobile-390x844-v2.png`
-  - `qa/screenshots/fish-desktop-1440x1000-v2.png`
-  - `qa/screenshots/gallery-desktop-1440x1000-v4.png`
-  - `qa/screenshots/detail-desktop-1440x1000.png`
-- Side-by-side evidence:
-  - `qa/screenshots/compare-home-desktop.jpg`
-  - `qa/screenshots/compare-home-mobile-v2.jpg`
-  - `qa/screenshots/compare-fish-desktop-v2.jpg`
-  - `qa/screenshots/compare-gallery-desktop-v4.jpg`
-  - `qa/screenshots/compare-detail-desktop.jpg`
+概念圖：
 
-## Viewport and normalization
+- `assets/images/design-reference/reference-concept-01-home-desktop.jpg`
+- `assets/images/design-reference/reference-concept-02-home-mobile.jpg`
+- `assets/images/design-reference/reference-concept-03-fish-list.jpg`
+- `assets/images/design-reference/reference-concept-05-fish-detail.jpg`
 
-- Desktop implementation viewport: 1440 × 1000 CSS px, device scale factor 1.
-- Mobile implementation viewport: requested 390 × 844 CSS px; browser content width 375 px because of the visible scrollbar, device scale factor 1.
-- Source concepts: 1024 × 1280 px each.
-- Desktop comparisons preserve each artifact's aspect ratio inside equal 860 × 960 panels.
-- Mobile source was cropped to the visible phone frame before being contained in the equal comparison panel.
-- State: default home, unfiltered fish list, default gallery, light-stripe detail, closed mobile menu.
-- The concepts are visual-direction references rather than exact production copy: they contain invented prices, contact details, scientific names, L numbers and commerce controls that the user explicitly prohibited unless confirmed.
+V1 正式站基準：
 
-## Required fidelity surfaces
+- `qa/audit-v2-baseline/01-home-desktop.png`
+- `qa/audit-v2-baseline/02-fish-list.png`
+- `qa/audit-v2-baseline/03-breeding.png`
+- `qa/audit-v2-baseline/04-contact.png`
+- `qa/audit-v2-baseline/05-home-mobile.png`
 
-### Fonts and typography
+V2 實作：
 
-- Uses the requested system font stack and a system serif display stack, with no downloaded font dependency.
-- Display headlines reproduce the high-contrast editorial character of the concepts.
-- Navigation, filters, metadata and body copy maintain readable optical sizes on desktop and mobile.
-- Mobile heading scale was reduced after the first pass so the real fish photo and the start of the brand statement share the first viewport.
+- `qa/screenshots/home-desktop-v2.png`
+- `qa/screenshots/home-mobile-v2.png`
+- `qa/screenshots/fish-list-v2.png`
+- `qa/screenshots/fish-detail-v2.png`
+- `qa/screenshots/breeding-v2.png`
+- `qa/screenshots/contact-v2.png`
 
-### Spacing and layout rhythm
+並排證據：
 
-- Desktop uses the concepts' white navigation bar, dark ocean hero, photo-led cards, rounded content surfaces and generous section rhythm.
-- Inner-page heroes were shortened after the first pass so fish cards and gallery imagery enter the desktop first viewport sooner.
-- Mobile layout has no horizontal overflow at 390 × 844 and preserves the fixed four-item dock without covering the final page content.
-- Radii, borders and shadows are consistent across filter panels, cards, notices and forms.
+- `qa/screenshots/compare-home-desktop-v2.jpg`
+- `qa/screenshots/compare-home-mobile-v2.jpg`
+- `qa/screenshots/compare-fish-list-v2.jpg`
+- `qa/screenshots/compare-fish-detail-v2.jpg`
+- `qa/screenshots/compare-breeding-v2.jpg`
+- `qa/screenshots/compare-contact-v2.jpg`
 
-### Colors and visual tokens
+## 視覺檢查
 
-- Uses the requested navy, deep ocean, teal, aqua, white surface and soft gray-green background tokens.
-- Aqua is reserved for active states, labels and primary actions; no inexpensive neon glow treatment is used.
-- Dark backgrounds retain readable white and muted text contrast.
+- 字體：維持系統無襯線與繁體中文襯線展示字，不下載外部字型。桌機與手機的標題比例、行高與換行均保持可讀。
+- 色彩：延續深海藍、墨綠藍、青綠與白色。Lighthouse 對比度修正後 Accessibility 為 100。
+- Logo：魚頭朝右、寬扁頭部、高背鰭、胸鰭與尾部條紋在 42px 手機尺寸仍可辨認；Header 深海藍、Footer 白色。
+- 圖像：所有公開魚圖皆為 AI 外觀示意並有可見標籤；魚身使用 contain，不裁切、不拉伸。
+- 版面：桌機 Hero 保留概念圖的白色 Header、深色水族背景、左側品牌文案與右側魚影像；內頁採深色導言與淺色內容交錯。
+- 手機：魚圖先於文案，390 × 844 與 360 × 800 首屏可見 Logo、品牌、定位、完整魚圖與 CTA；固定 Dock 不遮住 Footer。
+- 元件：圓角、按鈕高度、Badge、Hover、Focus、陰影與行動間距統一。
 
-### Image quality and asset fidelity
+## 比對與修正紀錄
 
-- All eight content images are user-provided real fish photos.
-- No concept screenshot, AI fish image, network image or screenshot crop is used as page content.
-- Each original remains unchanged in `assets/images/source/`.
-- Each used photo has 400, 640 and 960 px WebP variants plus a 960 px progressive JPG fallback.
-- Aspect ratios are preserved and fish bodies are not stretched.
-- Homepage hero uses preload, eager loading and high fetch priority; remaining images use lazy loading.
-- All image elements include Traditional Chinese alt text and intrinsic dimensions.
+1. P1：390 × 844 首屏主要 CTA 原先落在折線下方。
+   - 修正：手機魚圖高度改為 300px，縮短段落間距，三個 CTA 改為單列。
+   - 複驗：390 × 844 與 360 × 800 的主要 CTA 均在第一視窗內。
 
-### Copy and content
+2. P2：魚種、繁殖與詢問頁的桌機 Hero 過高，核心內容進入首屏太少。
+   - 修正：共用內頁 Hero 改為 360px 節奏並縮短 padding。
+   - 複驗：魚種卡片、繁殖實拍缺件區與聯絡狀態進入首屏。
 
-- Brand name, positioning and supporting line match the brief.
-- Scientific names, L numbers, prices, inventory, reviews, phone, address, hours and social accounts are not invented.
-- Each fish entry clearly states that the visible category is an appearance description and the formal strain remains to be confirmed.
-- The static contact form explicitly says it does not submit, upload or store personal data.
+3. P1：詢問表單使用新標記後未匹配舊 `.field` 選擇器，欄位呈現瀏覽器預設樣式。
+   - 修正：為 `.contact-form` 建立獨立欄位、select、textarea、全寬列與說明樣式。
+   - 複驗：桌機欄位高 50px、背景與圓角符合品牌系統，手機維持單欄。
 
-## Full-view comparison evidence
+4. P1：Lighthouse 初次 Accessibility 95，輔助文字與青綠標籤對比不足。
+   - 修正：加深 muted／teal、狀態卡改白色實底、深色媒體區使用 aqua-soft、CTA 說明改高對比白。
+   - 複驗：Accessibility 100。
 
-- Home desktop: matches the white header, deep ocean hero, serif display type, teal actions and right-side fish emphasis. The production version intentionally uses a more editorial, less commerce-heavy first viewport.
-- Home mobile: after iteration, the real fish photo leads the page and is visible before the headline, matching the reference's photo-first mobile hierarchy.
-- Fish list: retains the dark introduction, category chips, search and image-card grid. Price, stock and unsupported side filters were intentionally removed.
-- Gallery: retains a dark editorial introduction followed by a dense photo grid. It uses only the eight verified fish photos.
-- Detail: retains the large individual image plus a structured facts panel, while replacing unsupported scientific and commercial facts with cautious care guidance.
+## 功能與可及性
 
-## Focused-region comparison evidence
+- 手機選單、Escape 關閉、魚種篩選、搜尋、詢問內容產生與複製均可操作。
+- 可見 Focus、原生標籤、aria-expanded、aria-pressed、alt、reduced motion 均保留。
+- 22 個公開頁面無破圖、無 Console Error、無橫向溢位。
+- 沒有可操作的 FAQ 元件；選單、篩選、表單與按鈕已完成鍵盤檢查。
 
-- Header: consistent logo scale, white surface and teal active underline across all routes.
-- Hero: serif headline weight, dark ocean balance, image crop and glass note checked at desktop and mobile.
-- Fish filter: selected, search and empty-result paths tested; one-result state remains readable with no horizontal overflow.
-- Contact form: labels, required fields, select state, summary state and copy state tested at mobile width.
-- Focused checks were sufficient because the remaining lower-page content reuses the same verified tokens and component patterns.
+## 已知內容限制
 
-## Comparison history
+- 五張使用者手機實拍未在本機找到，因此繁殖頁使用清楚的缺件狀態，不以 AI 圖或空白色塊偽裝實拍。
+- 官方聯絡設定全為空白，聯絡頁顯示「官方聯絡管道尚待設定」，只提供內容產生器。
+- 概念圖包含未確認價格、庫存、聯絡方式、學名與 L 編號，V2 依規則不複製這些商業資訊。
 
-1. Initial mobile home finding — P2:
-   - Evidence: the first 390 × 844 capture showed only the oversized headline and proof panel; the real fish photo remained below the fold.
-   - Fix: reordered the mobile hero image before the copy, tightened spacing and reduced the mobile display size.
-   - Post-fix evidence: `qa/screenshots/home-mobile-390x844-v2.png` and `qa/screenshots/compare-home-mobile-v2.jpg`.
-   - Result: real fish photo fills the upper mobile viewport and the headline begins before the dock.
-
-2. Initial inner-page density finding — P2:
-   - Evidence: fish and gallery desktop captures devoted too much of the first viewport to the introduction, leaving insufficient visible image content.
-   - Fix: reduced desktop page-hero height and top section padding; replaced the gallery's redundant second heading with a compact status/filter row.
-   - Post-fix evidence: `qa/screenshots/fish-desktop-1440x1000-v2.png` and `qa/screenshots/gallery-desktop-1440x1000-v4.png`.
-   - Result: fish cards and gallery photography enter the first viewport without crowding the introduction.
-
-## Findings
-
-- No actionable P0, P1 or P2 findings remain.
-- P3: the concepts show more inventory density and commerce UI. This is an intentional product constraint because prices, stock, account, cart and checkout data are not confirmed and are outside this static site's authorized scope.
-- P3: the original concepts use different fish imagery. The implementation intentionally prioritizes the user's real photos over visual imitation.
-
-## Primary interactions tested
-
-- Desktop and mobile navigation.
-- Mobile menu open, close, Escape-ready state and body scroll lock.
-- Fish JSON loading: eight initial cards.
-- Category filter: star-point category returns two cards.
-- Search within selected category: “藍點” returns one matching card.
-- Dynamic detail query: correct title, image and care data for `gold-spotted` and `light-stripe`.
-- Contact form: required fields, native select, date, summary generation and clipboard copy.
-- Eleven routes inspected at 1280 × 900 with no horizontal overflow, broken images, missing image alt or browser console errors.
-
-## Final result
+## 最終結果
 
 final result: passed
