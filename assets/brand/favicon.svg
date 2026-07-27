@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title" style="color:#062f38">
+  <title id="title">強哥水族魚形圖示</title>
+  <rect width="64" height="64" rx="14" fill="#f4f8f8"/>
+  <g transform="translate(3 15) scale(.46)" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <path fill="currentColor" stroke="none" d="M9 35 2 20c14 1 23 6 30 13 12-11 29-15 50-12l17 3c8 1 15 6 20 13l6 8-8 5c-7 5-16 7-25 5L62 49c-13-3-24-3-33 0-8 3-17 5-27 3l8-12Z"/>
+    <path fill="currentColor" stroke="none" d="M52 23c7-12 17-18 31-19l-8 18Zm-1 26c-1 10-7 16-18 19l-3-18Zm28 3c4 8 10 12 19 14l-4-13Z"/>
+    <path stroke="#f4f8f8" stroke-width="5" d="M17 28 7 38m18-4L11 48"/>
+    <path stroke="#f4f8f8" stroke-width="4" d="M59 29c7 3 13 5 20 5m-25 5c8 4 16 6 24 6m8-14 11 3m-12 7 14 3m12-2c4 0 8 1 11 4"/>
+  </g>
+</svg>

@@ -4,10 +4,13 @@
     "name": "綠褐甲紋異形",
     "category": "甲紋系",
     "status": "品系待確認",
-    "summary": "體色呈綠褐色、甲片紋理清楚的實際個體，正式品系與編號需由繁殖者依來源確認。",
+    "summary": "綠褐色體表與甲片紋理的 AI 外觀示意，適合用來比較輪廓與花紋方向。",
     "image": {
-      "base": "fish-01-green-brown",
-      "alt": "透明隔離盒中的綠褐色異形魚側身近照"
+      "base": "ai-display-fish-01-green-brown",
+      "folder": "illustrations",
+      "alt": "AI 生成的綠褐甲紋異形魚外觀示意圖",
+      "sourceType": "ai-generated",
+      "sourceLabel": "AI 示意"
     },
     "temperament": "依個體與環境而異",
     "careLevel": "需先確認品系",
@@ -25,10 +28,13 @@
     "name": "迷宮甲紋異形",
     "category": "迷宮紋系",
     "status": "品系待確認",
-    "summary": "深色體表帶有褐色迷宮狀紋路的實際個體，花紋會因角度、狀態與成長而呈現差異。",
+    "summary": "深色體表與褐色迷宮狀紋路的 AI 外觀示意，用於辨識外觀分類差異。",
     "image": {
-      "base": "fish-02-maze-pattern",
-      "alt": "透明隔離盒中的深褐迷宮紋異形魚側身照"
+      "base": "ai-display-fish-02-maze-pattern",
+      "folder": "illustrations",
+      "alt": "AI 生成的深褐迷宮紋異形魚外觀示意圖",
+      "sourceType": "ai-generated",
+      "sourceLabel": "AI 示意"
     },
     "temperament": "依個體與環境而異",
     "careLevel": "需先確認品系",
@@ -46,10 +52,13 @@
     "name": "淺色條紋異形",
     "category": "條紋系",
     "status": "品系待確認",
-    "summary": "白底搭配褐色條紋的幼魚實際個體，不同條紋品系的成體尺寸與照護條件可能差異很大。",
+    "summary": "白底搭配褐色條紋的 AI 外觀示意；相似條紋可能出現在不同品系。",
     "image": {
-      "base": "fish-03-light-stripe",
-      "alt": "透明隔離盒中的白底褐色條紋異形幼魚"
+      "base": "ai-display-fish-03-light-stripe",
+      "folder": "illustrations",
+      "alt": "AI 生成的白底褐色條紋異形魚外觀示意圖",
+      "sourceType": "ai-generated",
+      "sourceLabel": "AI 示意"
     },
     "temperament": "依品系與個體而異",
     "careLevel": "需先確認品系",
@@ -67,10 +76,13 @@
     "name": "藍點星紋異形",
     "category": "星點系",
     "status": "品系待確認",
-    "summary": "深色體表與各鰭散布藍白亮點的實際個體，需結合來源、體型與細部特徵辨識。",
+    "summary": "深色體表與各鰭散布藍白亮點的 AI 外觀示意，用於星點外觀分類展示。",
     "image": {
-      "base": "fish-04-blue-spotted",
-      "alt": "透明隔離盒中的深色藍白星點異形魚"
+      "base": "ai-display-fish-04-blue-spotted",
+      "folder": "illustrations",
+      "alt": "AI 生成的藍白星點異形魚外觀示意圖",
+      "sourceType": "ai-generated",
+      "sourceLabel": "AI 示意"
     },
     "temperament": "依個體與空間而異",
     "careLevel": "需先確認品系",
@@ -88,10 +100,13 @@
     "name": "橘緣異形",
     "category": "橘緣系",
     "status": "品系待確認",
-    "summary": "深色體表、各鰭帶橘色邊緣的實際個體，相似外觀品系很多，不能只憑單張照片定名。",
+    "summary": "深色體表與橘色鰭緣的 AI 外觀示意，用於展示橘緣外觀方向。",
     "image": {
-      "base": "fish-05-orange-fin",
-      "alt": "透明隔離盒中的深色橘色鰭緣異形魚"
+      "base": "ai-display-fish-05-orange-fin",
+      "folder": "illustrations",
+      "alt": "AI 生成的橘色鰭緣異形魚外觀示意圖",
+      "sourceType": "ai-generated",
+      "sourceLabel": "AI 示意"
     },
     "temperament": "依個體與環境而異",
     "careLevel": "需先確認品系",
@@ -109,10 +124,13 @@
     "name": "白點星紋異形",
     "category": "星點系",
     "status": "品系待確認",
-    "summary": "黑色體表與各鰭分布清楚白點的實際個體，正式名稱需要比對來源與多角度細節。",
+    "summary": "黑色體表與各鰭分布白點的 AI 外觀示意，用於星點外觀比較。",
     "image": {
-      "base": "fish-06-white-spotted",
-      "alt": "透明隔離盒中的黑底白點星紋異形魚側身照"
+      "base": "ai-display-fish-06-white-spotted",
+      "folder": "illustrations",
+      "alt": "AI 生成的黑底白點星紋異形魚外觀示意圖",
+      "sourceType": "ai-generated",
+      "sourceLabel": "AI 示意"
     },
     "temperament": "依品系與個體而異",
     "careLevel": "需先確認品系",
@@ -130,10 +148,13 @@
     "name": "黃金點紋異形",
     "category": "點紋系",
     "status": "品系待確認",
-    "summary": "黑色體表與各鰭散布鮮明黃色圓點的實際個體，點紋外觀相似的品系很多。",
+    "summary": "黑色體表與各鰭散布黃色圓點的 AI 外觀示意，用於點紋分類展示。",
     "image": {
-      "base": "fish-07-gold-spotted",
-      "alt": "透明隔離盒中的黑底黃金圓點異形魚側身照"
+      "base": "ai-display-fish-07-gold-spotted",
+      "folder": "illustrations",
+      "alt": "AI 生成的黑底黃金圓點異形魚外觀示意圖",
+      "sourceType": "ai-generated",
+      "sourceLabel": "AI 示意"
     },
     "temperament": "依品系與個體而異",
     "careLevel": "需先確認品系",
@@ -151,10 +172,13 @@
     "name": "豹紋異形",
     "category": "豹紋系",
     "status": "品系待確認",
-    "summary": "全身呈現細密網狀豹紋、背鰭高展的實際個體，成體需求與食性仍需依來源確認。",
+    "summary": "細密網狀豹紋與高背鰭輪廓的 AI 外觀示意，用於豹紋方向展示。",
     "image": {
-      "base": "fish-08-leopard-pattern",
-      "alt": "透明隔離盒中的網狀豹紋異形魚高背鰭側身照"
+      "base": "ai-display-fish-08-leopard-pattern",
+      "folder": "illustrations",
+      "alt": "AI 生成的網狀豹紋高背鰭異形魚外觀示意圖",
+      "sourceType": "ai-generated",
+      "sourceLabel": "AI 示意"
     },
     "temperament": "依品系、體型與空間而異",
     "careLevel": "需先確認品系",

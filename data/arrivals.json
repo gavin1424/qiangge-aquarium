@@ -1,0 +1,66 @@
+[
+  {
+    "fishId": "green-brown-armored",
+    "displayStatus": "image-updated",
+    "updatedAt": "",
+    "inquiryAvailable": false,
+    "notes": "AI 外觀示意影像已完成來源更正。",
+    "verified": false
+  },
+  {
+    "fishId": "maze-pattern",
+    "displayStatus": "image-updated",
+    "updatedAt": "",
+    "inquiryAvailable": false,
+    "notes": "AI 外觀示意影像已完成來源更正。",
+    "verified": false
+  },
+  {
+    "fishId": "light-stripe",
+    "displayStatus": "pending-identification",
+    "updatedAt": "",
+    "inquiryAvailable": false,
+    "notes": "外觀分類等待來源資料確認。",
+    "verified": false
+  },
+  {
+    "fishId": "blue-spotted",
+    "displayStatus": "image-updated",
+    "updatedAt": "",
+    "inquiryAvailable": false,
+    "notes": "AI 外觀示意影像已完成來源更正。",
+    "verified": false
+  },
+  {
+    "fishId": "orange-fin",
+    "displayStatus": "image-updated",
+    "updatedAt": "",
+    "inquiryAvailable": false,
+    "notes": "AI 外觀示意影像已完成來源更正。",
+    "verified": false
+  },
+  {
+    "fishId": "white-spotted",
+    "displayStatus": "not-available",
+    "updatedAt": "",
+    "inquiryAvailable": false,
+    "notes": "目前沒有可公開的供應資訊。",
+    "verified": false
+  },
+  {
+    "fishId": "gold-spotted",
+    "displayStatus": "image-updated",
+    "updatedAt": "",
+    "inquiryAvailable": false,
+    "notes": "AI 外觀示意影像已完成來源更正。",
+    "verified": false
+  },
+  {
+    "fishId": "leopard-pattern",
+    "displayStatus": "archived",
+    "updatedAt": "",
+    "inquiryAvailable": false,
+    "notes": "保留為歷史外觀示意。",
+    "verified": false
+  }
+]
