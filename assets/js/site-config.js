@@ -1,4 +1,4 @@
-window.QIANGGE_CONFIG = {
+window.YUZHAI_CONFIG = {
   lineUrl: "",
   lineId: "",
   instagramUrl: "",

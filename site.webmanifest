@@ -1,7 +1,7 @@
 {
-  "name": "強哥水族",
-  "short_name": "強哥水族",
-  "description": "異形專賣・專業繁殖・飼養交流",
+  "name": "魚宅水族",
+  "short_name": "魚宅水族",
+  "description": "異形魚繁殖・飼養紀錄・水族交流",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

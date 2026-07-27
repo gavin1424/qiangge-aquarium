@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title">
-  <title id="title">強哥水族社群分享封面</title>
+  <title id="title">魚宅水族社群分享封面</title>
   <rect width="1200" height="630" fill="#031f27"/>
   <circle cx="1040" cy="76" r="300" fill="#087c89" opacity=".16"/>
   <circle cx="1080" cy="560" r="220" fill="#20a6b2" opacity=".08"/>
@@ -9,8 +9,8 @@
     <path stroke="#031f27" stroke-width="4" d="M17 28 7 38m18-4L11 48"/>
     <path stroke="#031f27" stroke-width="3.5" d="M59 29c7 3 13 5 20 5m-25 5c8 4 16 6 24 6m8-14 11 3m-12 7 14 3m12-2c4 0 8 1 11 4"/>
   </g>
-  <text x="92" y="225" fill="#fff" font-family="Microsoft JhengHei, Noto Sans TC, sans-serif" font-size="92" font-weight="700">強哥水族</text>
-  <text x="96" y="305" fill="#8cdee3" font-family="Microsoft JhengHei, Noto Sans TC, sans-serif" font-size="32" font-weight="600">異形專賣・專業繁殖・飼養交流</text>
+  <text x="92" y="225" fill="#fff" font-family="Microsoft JhengHei, Noto Sans TC, sans-serif" font-size="92" font-weight="700">魚宅水族</text>
+  <text x="96" y="305" fill="#8cdee3" font-family="Microsoft JhengHei, Noto Sans TC, sans-serif" font-size="32" font-weight="600">異形魚繁殖・飼養紀錄・水族交流</text>
   <line x1="96" y1="365" x2="560" y2="365" stroke="#20a6b2" stroke-width="4"/>
-  <text x="96" y="430" fill="#d5e7e9" font-family="Microsoft JhengHei, Noto Sans TC, sans-serif" font-size="26">用心繁殖・延續生命</text>
+  <text x="96" y="430" fill="#d5e7e9" font-family="Microsoft JhengHei, Noto Sans TC, sans-serif" font-size="26">一方魚缸，一個屬於魚與生活的家。</text>
 </svg>

@@ -207,7 +207,7 @@ function buildOfficialChannels() {
   const detailsRoot = qs("[data-contact-details]");
   if (!root) return;
 
-  const config = window.QIANGGE_CONFIG || {};
+  const config = window.YUZHAI_CONFIG || {};
   const links = [];
   const add = (label, href, external = true) => {
     if (!href) return;
@@ -269,7 +269,7 @@ if (contactForm) {
 
     const formData = new FormData(contactForm);
     const summary = [
-      "強哥水族｜詢問內容",
+      "魚宅水族｜詢問內容",
       `稱呼：${formData.get("name")}`,
       `詢問主題：${formData.get("topic")}`,
       `偏好日期：${formData.get("date") || "未指定"}`,

@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title" style="color:#062f38">
-  <title id="title">強哥水族魚形圖示</title>
+  <title id="title">魚宅水族魚形圖示</title>
   <rect width="64" height="64" rx="14" fill="#f4f8f8"/>
   <g transform="translate(3 15) scale(.46)" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
     <path fill="currentColor" stroke="none" d="M9 35 2 20c14 1 23 6 30 13 12-11 29-15 50-12l17 3c8 1 15 6 20 13l6 8-8 5c-7 5-16 7-25 5L62 49c-13-3-24-3-33 0-8 3-17 5-27 3l8-12Z"/>

@@ -1,10 +1,10 @@
-# 強哥水族專案操作規範
+# 魚宅水族專案操作規範
 
-本檔適用於 `強哥水族_Production` 與其唯一遠端 Repository：`gavin1424/qiangge-aquarium`。
+本檔適用於目前本機 Production 專案與其唯一遠端 Repository：`gavin1424/qiangge-aquarium`。
 
 ## 安全邊界
 
-- 只允許操作強哥水族專案。
+- 只允許操作魚宅水族專案。
 - 不可刪除、覆蓋或修改其他網站、資料夾或部署。
 - 不可修改 `gavin1424.github.io`、`warm-thread-patchwork-demo`、`liubai-pottery-studio-demo` 或任何其他 GitHub Repository。
 - 如正式專案資料夾已存在，修改前必須建立時間戳完整備份，不可直接刪除。
@@ -27,4 +27,3 @@
 - 禁止以 `/assets/...`、`/index.html` 等站點根目錄絕對路徑連結內部資源。
 - 每次修改後必須執行 QA，至少涵蓋：連結、HTML、JavaScript、響應式版面、鍵盤操作、無障礙名稱、圖片清單與 GitHub Pages 子目錄路徑。
 - 若加入圖片，必須更新 `ASSET_MANIFEST.csv`、正確繁中 alt、尺寸資訊、實際使用狀態與最佳化版本。
-

@@ -1,4 +1,4 @@
-# 強哥水族素材缺件報告
+# 魚宅水族素材缺件報告
 
 更新日期：2026-07-27
 
@@ -6,8 +6,8 @@
 
 已搜尋最近 14 天內建立或修改的 JPG、JPEG、PNG、WEBP，範圍包括：
 
-- `C:\Users\wwwas\Desktop\強哥水族網站素材`：資料夾不存在。
-- `C:\Users\wwwas\Desktop`：未找到可確認為強哥水族手機實拍的五張照片。
+- `C:\Users\wwwas\Desktop\魚宅水族網站素材`：資料夾不存在。
+- `C:\Users\wwwas\Desktop`：未找到可確認為魚宅水族手機實拍的五張照片。
 - `C:\Users\wwwas\Downloads`：未找到可確認的手機實拍原檔。
 - `C:\Users\wwwas\Pictures`：未找到可確認的手機實拍原檔。
 - `C:\Users\wwwas\OneDrive\Desktop`：資料夾不存在。

@@ -17,7 +17,7 @@ PUBLIC_HTML = sorted(
 )
 AI_DISCLOSURE = (
     "AI 生成示意圖，僅供網站視覺與外觀分類展示，"
-    "不代表強哥水族實際個體、品系、現貨或繁殖成果。"
+    "不代表魚宅水族實際個體、品系、現貨或繁殖成果。"
 )
 STATIC_SLUGS = {
     "green-brown-armored",
@@ -136,7 +136,7 @@ for page in PUBLIC_HTML:
 
     if "brand-v2.css" not in text:
         ERRORS.append(f"{rel}: brand-v2.css is not loaded")
-    if page.relative_to(ROOT).as_posix() != "fish/detail.html" and 'aria-label="強哥水族首頁"' not in text:
+    if page.relative_to(ROOT).as_posix() != "fish/detail.html" and 'aria-label="魚宅水族首頁"' not in text:
         ERRORS.append(f"{rel}: shared fish logo is missing")
 
     for image in parser.images:
@@ -270,7 +270,7 @@ required = [
     "AGENTS.md",
     "README.md",
     "PROJECT_STATUS.md",
-    "QIANGGE_AQUARIUM_DEPLOY_REPORT_ZH.md",
+    "YUZHAI_AQUARIUM_DEPLOY_REPORT_ZH.md",
     "ASSET_MANIFEST.csv",
     "ASSET_PROVENANCE.csv",
     "MISSING_ASSETS_REPORT_ZH.md",

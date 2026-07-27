@@ -100,11 +100,11 @@ def ensure_head(html_text: str, path: Path) -> str:
     canonical_match = re.search(
         r'<link rel="canonical" href="([^"]*)">', html_text, flags=re.S
     )
-    title = title_match.group(1).strip() if title_match else "強哥水族"
+    title = title_match.group(1).strip() if title_match else "魚宅水族"
     description = (
         desc_match.group(1).strip()
         if desc_match
-        else "強哥水族｜異形專賣・專業繁殖・飼養交流"
+        else "魚宅水族｜異形魚繁殖・飼養紀錄・水族交流"
     )
     canonical = (
         canonical_match.group(1).strip()
@@ -119,11 +119,11 @@ def ensure_head(html_text: str, path: Path) -> str:
             f'    <meta property="og:title" content="{html.escape(title)}">\n'
             f'    <meta property="og:description" content="{html.escape(description)}">\n'
             f'    <meta property="og:url" content="{html.escape(canonical)}">\n'
-            f'    <meta property="og:image" content="{SITE_URL}assets/brand/og-cover.jpg">\n'
+            f'    <meta property="og:image" content="{SITE_URL}assets/brand/og-cover.jpg?v=2">\n'
             '    <meta name="twitter:card" content="summary_large_image">\n'
             f'    <meta name="twitter:title" content="{html.escape(title)}">\n'
             f'    <meta name="twitter:description" content="{html.escape(description)}">\n'
-            f'    <meta name="twitter:image" content="{SITE_URL}assets/brand/og-cover.jpg">\n'
+            f'    <meta name="twitter:image" content="{SITE_URL}assets/brand/og-cover.jpg?v=2">\n'
         )
         html_text = html_text.replace("</head>", social + "</head>")
 
@@ -142,7 +142,7 @@ def ensure_head(html_text: str, path: Path) -> str:
         ),
         (
             'name="twitter:image"',
-            f'    <meta name="twitter:image" content="{SITE_URL}assets/brand/og-cover.jpg">\n',
+            f'    <meta name="twitter:image" content="{SITE_URL}assets/brand/og-cover.jpg?v=2">\n',
         ),
     )
     for needle, markup in social_fallbacks:
@@ -205,13 +205,10 @@ def detail_page(fish: dict) -> str:
     base = "../../"
     slug = fish["id"]
     canonical = f"{SITE_URL}fish/{slug}/"
-    image_url = (
-        f"{SITE_URL}assets/images/{fish['image']['folder']}/"
-        f"{fish['image']['base']}-960.jpg"
-    )
+    image_url = f"{SITE_URL}assets/brand/og-cover.jpg?v=2"
     description = (
         f"{fish['name']}外觀分類與一般照護觀察重點。圖片為 AI 外觀示意，"
-        "不代表強哥水族實際個體、品系或供應狀況。"
+        "不代表魚宅水族實際個體、品系或供應狀況。"
     )
     notes = "".join(f"<li>{html.escape(note)}</li>" for note in fish["notes"])
     breadcrumb = json.dumps(
@@ -241,7 +238,7 @@ def detail_page(fish: dict) -> str:
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{html.escape(fish['name'])}外觀與照護重點｜強哥水族</title>
+    <title>{html.escape(fish['name'])}外觀與照護重點｜魚宅水族</title>
     <meta name="description" content="{html.escape(description)}">
     <meta name="theme-color" content="#031f27">
     <link rel="canonical" href="{canonical}">
@@ -250,12 +247,12 @@ def detail_page(fish: dict) -> str:
     <link rel="manifest" href="{base}site.webmanifest">
     <meta property="og:type" content="article">
     <meta property="og:locale" content="zh_TW">
-    <meta property="og:title" content="{html.escape(fish['name'])}外觀與照護重點｜強哥水族">
+    <meta property="og:title" content="{html.escape(fish['name'])}外觀與照護重點｜魚宅水族">
     <meta property="og:description" content="{html.escape(description)}">
     <meta property="og:url" content="{canonical}">
     <meta property="og:image" content="{image_url}">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{html.escape(fish['name'])}外觀與照護重點｜強哥水族">
+    <meta name="twitter:title" content="{html.escape(fish['name'])}外觀與照護重點｜魚宅水族">
     <meta name="twitter:description" content="{html.escape(description)}">
     <meta name="twitter:image" content="{image_url}">
     <script type="application/ld+json">{breadcrumb}</script>
@@ -280,7 +277,7 @@ def detail_page(fish: dict) -> str:
             <p class="detail-lead">{html.escape(fish['summary'])}</p>
             <div class="detail-tags"><span>{html.escape(fish['category'])}</span><span>{html.escape(fish['status'])}</span></div>
             <div class="image-disclosure image-disclosure--compact">
-              AI 生成示意圖，僅供網站視覺與外觀分類展示，不代表強哥水族實際個體、品系、現貨或繁殖成果。
+              AI 生成示意圖，僅供網站視覺與外觀分類展示，不代表魚宅水族實際個體、品系、現貨或繁殖成果。
             </div>
           </div>
         </div>

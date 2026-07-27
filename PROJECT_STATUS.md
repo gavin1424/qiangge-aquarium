@@ -1,16 +1,20 @@
 # 專案狀態
 
-- 專案：強哥水族品牌網站 V2
+- 專案：魚宅水族品牌網站
 - Repository：`gavin1424/qiangge-aquarium`
-- 修改分支：`brand-v2`
+- 修改分支：`main`
 - 備份標籤：`before-brand-v2-20260727-112204`
 - 正式部署分支：`main`
 - 正式網址：<https://gavin1424.github.io/qiangge-aquarium/>
 - 更新日期：2026-07-27
 
-## V2 完成範圍
+## 品牌識別完成範圍
 
-- 建立異形魚／吸盤甲鯰輪廓 SVG 品牌系統，替換舊有圓形「強」字標誌。
+- 品牌名稱統一為「魚宅水族」，英文名稱統一為「Yuzhai Aquarium」。
+- 主標語更新為「異形魚繁殖・飼養紀錄・水族交流」。
+- 延用異形魚／吸盤甲鯰輪廓 SVG 品牌系統，Header、Footer、手機導覽與政策頁一致。
+- favicon、App icon 與社群分享封面均使用魚形 Logo。
+- title、meta description、Open Graph、Twitter Card、JSON-LD 與政策頁品牌文字已同步。
 - 將 8 張 AI 生成魚圖移至 `assets/images/illustrations/` 並全面顯示「AI 示意」。
 - 本機未找到五張手機實拍，因此目前實拍數量為 0，繁殖頁清楚列出缺件。
 - 建立圖片來源 JSON/CSV、統一圖片聲明與獨立圖片來源說明頁。
@@ -24,7 +28,7 @@
 - 22 個公開頁面、20 筆 sitemap URL 與 108 個本機頁面／資源 URL 均通過。
 - Lighthouse：Performance 97、Accessibility 100、Best Practices 100、SEO 100。
 - Console Error、破圖、404 資源與橫向溢位均為 0。
-- 本機 QA 已通過；正式站結果以最終部署複驗為準。
+- 品牌更名本機 QA 已通過；正式站結果以本次部署後複驗為準。
 
 ## 待使用者補充
 
