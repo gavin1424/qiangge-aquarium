@@ -4,6 +4,10 @@
 
 這是一個為 GitHub Pages 專案頁設計的純靜態多頁網站。網站不需要資料庫、後端伺服器、WordPress、付費 API 或第三方追蹤服務。
 
+正式網站：<https://gavin1424.github.io/qiangge-aquarium/>
+
+Repository：<https://github.com/gavin1424/qiangge-aquarium>
+
 ## 網站頁面
 
 - 首頁
@@ -34,7 +38,7 @@ python -m http.server 8000
 gavin1424/qiangge-aquarium
 ```
 
-GitHub Pages 目標網址：
+GitHub Pages 正式網址：
 
 ```text
 https://gavin1424.github.io/qiangge-aquarium/
